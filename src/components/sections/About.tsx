@@ -60,10 +60,10 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="relative py-24 md:py-32"
+      className="w-full py-24 md:py-32"
       style={{ backgroundColor: 'var(--bg-elevated)' }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: text */}
           <motion.div

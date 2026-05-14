@@ -28,7 +28,7 @@ export default function Footer() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <footer ref={ref} style={{ backgroundColor: 'var(--bg-elevated)' }}>
+    <footer ref={ref} className="w-full" style={{ backgroundColor: 'var(--bg-elevated)' }}>
       {/* CTA Banner */}
       <div className="py-24 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div
@@ -74,7 +74,7 @@ export default function Footer() {
         className="border-t px-4 sm:px-6 lg:px-8 py-8"
         style={{ borderColor: 'var(--border-glass)' }}
       >
-        <div className="container mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo / name */}
           <div>
             <div className="font-bold text-lg gradient-text mb-1">genrih</div>
@@ -122,7 +122,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div
-          className="container mx-auto max-w-7xl mt-6 pt-6 border-t flex flex-col md:flex-row items-center justify-between gap-2 text-xs"
+          className="max-w-7xl mx-auto mt-6 pt-6 border-t flex flex-col md:flex-row items-center justify-between gap-2 text-xs"
           style={{ borderColor: 'var(--border-glass)', color: 'var(--text-muted)' }}
         >
           <span>© 2026 genrih · All rights reserved</span>

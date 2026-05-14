@@ -101,10 +101,10 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="relative py-24 md:py-32"
+      className="w-full py-24 md:py-32"
       style={{ backgroundColor: 'var(--bg-elevated)' }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
