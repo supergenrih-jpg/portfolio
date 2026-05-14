@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <footer ref={ref} className="w-full" style={{ backgroundColor: 'var(--bg-elevated)' }}>
       {/* CTA Banner */}
-      <div className="py-24 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-24 text-center relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -41,7 +41,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="relative z-10 max-w-2xl mx-auto"
+          className="relative z-10 mx-auto max-w-2xl"
         >
           <h2
             className="font-bold mb-4"
@@ -71,10 +71,10 @@ export default function Footer() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="border-t px-4 sm:px-6 lg:px-8 py-8"
+        className="w-full px-4 sm:px-6 lg:px-8 py-8 border-t"
         style={{ borderColor: 'var(--border-glass)' }}
       >
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo / name */}
           <div>
             <div className="font-bold text-lg gradient-text mb-1">genrih</div>
@@ -122,7 +122,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div
-          className="max-w-7xl mx-auto mt-6 pt-6 border-t flex flex-col md:flex-row items-center justify-between gap-2 text-xs"
+          className="mx-auto max-w-7xl mt-6 pt-6 border-t flex flex-col md:flex-row items-center justify-between gap-2 text-xs"
           style={{ borderColor: 'var(--border-glass)', color: 'var(--text-muted)' }}
         >
           <span>© 2026 genrih · All rights reserved</span>

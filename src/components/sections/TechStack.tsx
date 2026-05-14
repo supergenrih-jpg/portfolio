@@ -65,10 +65,10 @@ export default function TechStack() {
     <section
       id="stack"
       ref={ref}
-      className="w-full py-24 md:py-32"
+      className="w-full px-4 sm:px-6 lg:px-8 py-24 md:py-32"
       style={{ backgroundColor: 'var(--bg-elevated)' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
