@@ -1,16 +1,8 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { ChevronDown, ExternalLink } from 'lucide-react';
-import { Suspense } from 'react';
-
-const HeroScene = dynamic(() => import('@/components/3d/HeroScene'), {
-  ssr: false,
-  loading: () => (
-    <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/20 to-purple-950/20" />
-  ),
-});
+import HeroBackground from '@/components/3d/HeroBackground';
 
 const heroWords = "I build AI-powered SaaS that converts.".split(' ');
 
@@ -25,22 +17,11 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* 3D Background */}
-      <Suspense fallback={<div className="absolute inset-0 bg-gradient-to-br from-cyan-950/20 to-purple-950/20" />}>
-        <HeroScene />
-      </Suspense>
-
-      {/* Radial gradient overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(10,10,15,0.7) 70%, rgba(10,10,15,0.95) 100%)',
-        }}
-      />
+      {/* CSS + Framer Motion background */}
+      <HeroBackground />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+      <div className="relative text-center px-6 max-w-6xl mx-auto" style={{ zIndex: 10 }}>
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -136,6 +117,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.6 }}
         aria-hidden="true"
+        style={{ zIndex: 10 }}
       >
         <span className="text-xs tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>
           Scroll

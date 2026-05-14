@@ -10,8 +10,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@react-three/drei": "9.114.0",
-    "@react-three/fiber": "8.17.10",
     "@studio-freight/lenis": "^1.0.0",
     "framer-motion": "^11.0.0",
     "gsap": "^3.12.0",
@@ -20,7 +18,6 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "resend": "^4.0.0",
-    "three": "^0.169.0",
     "zod": "^3.23.0"
   },
   "devDependencies": {
@@ -29,17 +26,12 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/three": "^0.169.0",
     "eslint": "^9",
     "eslint-config-next": "^15.3.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.0.0"
   },
   "pnpm": {
-    "overrides": {
-      "react": "18.3.1",
-      "react-dom": "18.3.1"
-    },
     "onlyBuiltDependencies": [
       "esbuild",
       "unrs-resolver",
