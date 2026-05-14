@@ -9,15 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@react-three/drei": "^9.115.0",
-    "@react-three/fiber": "^8.17.0",
+    "@react-three/drei": "9.114.0",
+    "@react-three/fiber": "8.17.10",
     "@studio-freight/lenis": "^1.0.0",
     "framer-motion": "^11.0.0",
     "gsap": "^3.12.0",
     "lucide-react": "^0.400.0",
     "next": "^15.3.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "resend": "^4.0.0",
     "three": "^0.169.0",
     "zod": "^3.23.0"
@@ -35,6 +35,10 @@
     "typescript": "^5.0.0"
   },
   "pnpm": {
+    "overrides": {
+      "react": "18.3.1",
+      "react-dom": "18.3.1"
+    },
     "onlyBuiltDependencies": [
       "esbuild",
       "unrs-resolver",
