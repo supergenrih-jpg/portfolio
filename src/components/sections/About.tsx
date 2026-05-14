@@ -43,8 +43,7 @@ function StatCard({ value, label, suffix }: { value: number; label: string; suff
           backgroundClip: 'text',
         }}
       >
-        {count}
-        {suffix}
+        {count}{suffix}
       </div>
       <div className="text-sm" style={{ color: 'var(--text-secondary)' }}>
         {label}
@@ -61,11 +60,11 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="py-24 px-6"
+      className="relative py-24 md:py-32"
       style={{ backgroundColor: 'var(--bg-elevated)' }}
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: text */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -80,10 +79,7 @@ export default function About() {
               I turn ideas into{' '}
               <span className="gradient-text">shipped products.</span>
             </h2>
-            <div
-              className="space-y-4 leading-relaxed"
-              style={{ color: 'var(--text-secondary)' }}
-            >
+            <div className="space-y-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               <p>
                 I&apos;m genrih — a full-stack developer with deep specialization in AI
                 integration and SaaS development. Over the past months I&apos;ve shipped 3
