@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Github, Linkedin, ExternalLink, Twitter } from 'lucide-react';
+import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const quickLinks = [
   { label: 'About', href: '#about' },
@@ -14,7 +14,6 @@ const quickLinks = [
 const socials = [
   { icon: Github, href: 'https://github.com/supergenrih-jpg', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: ExternalLink, href: 'https://www.upwork.com', label: 'Upwork' },
   { icon: Twitter, href: 'https://twitter.com', label: 'Twitter/X' },
 ];
 
@@ -54,15 +53,13 @@ export default function Footer() {
             Book a call. Tell me what you need. I&apos;ll tell you if I can build it
             (90% of the time, yes).
           </p>
-          <a
-            href="https://www.upwork.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => scrollTo('contact')}
             className="btn-primary text-lg"
             style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}
           >
-            Hire Me on Upwork <ExternalLink size={18} />
-          </a>
+            Start a Project →
+          </button>
         </motion.div>
       </div>
 

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Briefcase, Calendar, Github, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Calendar, Github, Send, CheckCircle2 } from 'lucide-react';
 import { z } from 'zod';
 
 const contactSchema = z.object({
@@ -10,7 +10,7 @@ const contactSchema = z.object({
   email: z.string().email('Invalid email address'),
   company: z.string().optional(),
   projectType: z.string().min(1, 'Please select a project type'),
-  budget: z.string().min(1, 'Please select a budget range'),
+  budget: z.string().optional(),
   timeline: z.string().min(1, 'Please select a timeline'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
@@ -25,13 +25,6 @@ const contactMethods = [
     value: 'super.genrih@ukr.net',
     href: 'mailto:super.genrih@ukr.net',
     color: 'var(--cyan)',
-  },
-  {
-    icon: Briefcase,
-    label: 'Upwork',
-    value: 'Hire on Upwork',
-    href: 'https://www.upwork.com',
-    color: 'var(--purple)',
   },
   {
     icon: Calendar,
@@ -213,53 +206,47 @@ export default function Contact() {
                   />
                 </div>
 
-                {/* Project type + Budget */}
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="projectType" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-                      Project type <span style={{ color: 'var(--cyan)' }}>*</span>
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className={inputClass}
-                      style={{ ...inputStyle, cursor: 'pointer' }}
-                      aria-required="true"
-                    >
-                      <option value="">Select type...</option>
-                      <option value="AI Chatbot">AI Chatbot</option>
-                      <option value="Custom SaaS / MVP">Custom SaaS / MVP</option>
-                      <option value="CRM System">CRM System</option>
-                      <option value="Lead Generation Tool">Lead Generation Tool</option>
-                      <option value="API Integration">API Integration</option>
-                      <option value="Other">Other</option>
-                    </select>
-                    {errors.projectType && <p className="text-xs mt-1" style={{ color: '#f87171' }}>{errors.projectType}</p>}
-                  </div>
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-                      Budget <span style={{ color: 'var(--cyan)' }}>*</span>
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className={inputClass}
-                      style={{ ...inputStyle, cursor: 'pointer' }}
-                      aria-required="true"
-                    >
-                      <option value="">Select budget...</option>
-                      <option value="$500 - $1,500">$500 – $1,500</option>
-                      <option value="$1,500 - $3,000">$1,500 – $3,000</option>
-                      <option value="$3,000 - $5,000">$3,000 – $5,000</option>
-                      <option value="$5,000 - $10,000">$5,000 – $10,000</option>
-                      <option value="$10,000+">$10,000+</option>
-                    </select>
-                    {errors.budget && <p className="text-xs mt-1" style={{ color: '#f87171' }}>{errors.budget}</p>}
-                  </div>
+                {/* Project type */}
+                <div>
+                  <label htmlFor="projectType" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
+                    Project type <span style={{ color: 'var(--cyan)' }}>*</span>
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    className={inputClass}
+                    style={{ ...inputStyle, cursor: 'pointer' }}
+                    aria-required="true"
+                  >
+                    <option value="">Select type...</option>
+                    <option value="AI Chatbot">AI Chatbot</option>
+                    <option value="Custom SaaS / MVP">Custom SaaS / MVP</option>
+                    <option value="CRM System">CRM System</option>
+                    <option value="Lead Generation Tool">Lead Generation Tool</option>
+                    <option value="API Integration">API Integration</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  {errors.projectType && <p className="text-xs mt-1" style={{ color: '#f87171' }}>{errors.projectType}</p>}
+                </div>
+
+                {/* Budget (optional free text) */}
+                <div>
+                  <label htmlFor="budget" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
+                    Budget{' '}
+                    <span className="text-xs" style={{ color: 'var(--text-muted)' }}>(optional)</span>
+                  </label>
+                  <input
+                    id="budget"
+                    name="budget"
+                    type="text"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    className={inputClass}
+                    style={inputStyle}
+                    placeholder="e.g. $2,000–$5,000 or flexible"
+                  />
                 </div>
 
                 {/* Timeline */}

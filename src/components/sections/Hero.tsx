@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown, ExternalLink } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import HeroBackground from '@/components/3d/HeroBackground';
 
 const heroWords = "I build AI-powered SaaS that converts.".split(' ');
@@ -9,6 +9,11 @@ const heroWords = "I build AI-powered SaaS that converts.".split(' ');
 export default function Hero() {
   const scrollToProjects = () => {
     const el = document.getElementById('projects');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToContact = () => {
+    const el = document.getElementById('contact');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -84,14 +89,9 @@ export default function Hero() {
           <button onClick={scrollToProjects} className="btn-primary">
             View My Work
           </button>
-          <a
-            href="https://www.upwork.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary"
-          >
-            Hire Me on Upwork <ExternalLink size={16} />
-          </a>
+          <button onClick={scrollToContact} className="btn-secondary">
+            Get in Touch
+          </button>
         </motion.div>
 
         {/* Availability badge */}

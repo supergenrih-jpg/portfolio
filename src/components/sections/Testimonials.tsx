@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
 
 const logos = [
   { name: 'Vercel', text: 'VERCEL' },
@@ -14,6 +13,11 @@ const logos = [
 export default function Testimonials() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const scrollToContact = () => {
+    const el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section
@@ -66,18 +70,15 @@ export default function Testimonials() {
             ))}
           </div>
 
-          <motion.a
-            href="https://www.upwork.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            onClick={scrollToContact}
             className="btn-primary inline-flex"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Be my first 5-star review → Hire me on Upwork{' '}
-            <ExternalLink size={16} />
-          </motion.a>
+            Be among my first clients — Let&apos;s talk →
+          </motion.button>
         </motion.div>
       </div>
     </section>

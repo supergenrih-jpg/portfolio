@@ -10,7 +10,6 @@ const services = [
     title: 'AI Automation & Agents',
     description:
       'Build AI agents that automate customer service, qualify leads, book appointments, and process data 24/7. Integrate with your existing tools (CRM, email, calendar, payment systems).',
-    price: '$1,500',
     color: 'var(--cyan)',
   },
   {
@@ -18,7 +17,6 @@ const services = [
     title: 'AI Chatbots',
     description:
       'Custom AI chatbots for WhatsApp, Instagram, Telegram, Messenger, or your website. Trained on your business knowledge. Handles 80% of customer inquiries automatically.',
-    price: '$1,500',
     color: 'var(--purple)',
   },
   {
@@ -26,7 +24,6 @@ const services = [
     title: 'Micro-SaaS MVP',
     description:
       'From idea to production-ready SaaS in 2–3 weeks. Full stack with auth, payments, dashboards, and AI features. You own 100% of the code.',
-    price: '$3,000',
     color: 'var(--cyan)',
   },
   {
@@ -34,7 +31,6 @@ const services = [
     title: 'Custom CRM Systems',
     description:
       'Industry-specific CRMs that speak your business language. Real estate, salons, dental clinics, fitness studios — built for how YOU work, not generic templates.',
-    price: '$2,500',
     color: 'var(--purple)',
   },
   {
@@ -42,7 +38,6 @@ const services = [
     title: 'Lead Generation Tools',
     description:
       'AI-powered prospect discovery + automated cold outreach. Scrape, qualify, and personalize at scale. Replace 3 separate tools with one custom solution.',
-    price: '$2,000',
     color: 'var(--cyan)',
   },
   {
@@ -50,7 +45,6 @@ const services = [
     title: 'API Integrations',
     description:
       'Connect OpenAI / Claude to any platform. Webhooks, custom endpoints, data pipelines. If two systems should talk to each other, I make them.',
-    price: '$800',
     color: 'var(--purple)',
   },
 ];
@@ -59,7 +53,7 @@ function ServiceCard({
   service,
   index,
 }: {
-  service: (typeof services)[0];
+  service: typeof services[0];
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -95,16 +89,13 @@ function ServiceCard({
         {service.description}
       </p>
 
-      <div className="flex items-center justify-between mt-auto pt-4 border-t" style={{ borderColor: 'var(--border-glass)' }}>
-        <span className="font-semibold" style={{ color: service.color }}>
-          Starting at {service.price}
-        </span>
+      <div className="mt-auto pt-4 border-t" style={{ borderColor: 'var(--border-glass)' }}>
         <button
           onClick={scrollToContact}
-          className="text-sm font-medium transition-colors duration-200 hover:underline"
-          style={{ color: 'var(--text-secondary)' }}
+          className="w-full text-sm font-semibold text-center transition-colors duration-200 hover:underline"
+          style={{ color: service.color }}
         >
-          Learn more →
+          Let&apos;s discuss your project →
         </button>
       </div>
     </motion.div>
