@@ -120,8 +120,8 @@ export default function Contact() {
     <section id="contact" ref={ref} className="w-full px-4 sm:px-6 lg:px-8 py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -141,8 +141,8 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {isSuccess ? (
@@ -323,8 +323,8 @@ export default function Contact() {
 
           {/* Contact methods */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col justify-center gap-4"
           >
@@ -339,8 +339,8 @@ export default function Contact() {
                   href={method.href}
                   target={method.href.startsWith('http') ? '_blank' : undefined}
                   rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
                   className="glass-card p-5 flex items-center gap-4 group hover:no-underline"
                   aria-label={`${method.label}: ${method.value}`}

@@ -74,8 +74,8 @@ function ServiceCard({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className="glass-card p-8 flex flex-col group cursor-default"
     >
@@ -119,8 +119,8 @@ export default function Services() {
     <section id="services" ref={ref} className="w-full px-4 sm:px-6 lg:px-8 py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >

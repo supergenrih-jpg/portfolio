@@ -44,7 +44,7 @@ export default function Hero() {
           {heroWords.map((word, i) => (
             <motion.span
               key={i}
-              initial={{ opacity: 0, y: 60, rotateX: -30 }}
+              initial={{ opacity: 0 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{
                 duration: 0.6,

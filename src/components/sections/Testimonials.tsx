@@ -23,8 +23,8 @@ export default function Testimonials() {
     >
       <div className="mx-auto max-w-3xl text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
         >
           <span className="section-eyebrow">What clients say</span>
@@ -51,7 +51,7 @@ export default function Testimonials() {
             {logos.map((logo) => (
               <motion.div
                 key={logo.name}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: logos.indexOf(logo) * 0.1 }}
                 className="glass-card px-6 py-3"
@@ -71,8 +71,8 @@ export default function Testimonials() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary inline-flex"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             Be my first 5-star review → Hire me on Upwork{' '}

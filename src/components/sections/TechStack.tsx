@@ -70,8 +70,8 @@ export default function TechStack() {
     >
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -89,8 +89,8 @@ export default function TechStack() {
           {groups.map((group, gi) => (
             <motion.div
               key={group.label}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: gi * 0.1 }}
             >
               <h3
@@ -103,8 +103,8 @@ export default function TechStack() {
                 {group.items.map((item, ii) => (
                   <motion.div
                     key={item}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : {}}
                     transition={{ duration: 0.3, delay: gi * 0.1 + ii * 0.05 }}
                     className="tech-badge justify-start font-mono"
                   >
