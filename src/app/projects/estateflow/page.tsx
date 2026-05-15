@@ -39,6 +39,12 @@ export default function EstateFlowPage() {
       demoUrl="https://estateflow-gamma.vercel.app"
       githubUrl="https://github.com/supergenrih-jpg/estateflow"
       accentColor="#a855f7"
+      screenshots={[
+        '/screenshots/estateflow-hero.png',
+        '/screenshots/estateflow-1.png',
+        '/screenshots/estateflow-2.png',
+        '/screenshots/estateflow-3.png',
+      ]}
       metrics={[
         { value: '3', label: 'views: Grid / List / Map' },
         { value: '7', label: 'deal pipeline stages' },

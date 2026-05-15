@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ExternalLink, Github, BookOpen } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const projects = [
@@ -18,10 +19,10 @@ const projects = [
       { value: '3', label: 'AI email variants per lead' },
       { value: '94%', label: 'AI quality score' },
     ],
+    screenshot: '/screenshots/leadpilot-hero.png',
     demo: 'https://leadpilot-genrih.vercel.app',
     github: 'https://github.com/supergenrih-jpg/leadpilot',
     caseStudy: '/projects/leadpilot',
-    gradient: 'from-cyan-500/20 to-blue-500/20',
     accentColor: 'var(--cyan)',
   },
   {
@@ -36,10 +37,10 @@ const projects = [
       { value: '7', label: 'stages in visual pipeline' },
       { value: 'AI', label: 'buyer-property matching' },
     ],
+    screenshot: '/screenshots/estateflow-hero.png',
     demo: 'https://estateflow-gamma.vercel.app',
     github: 'https://github.com/supergenrih-jpg/estateflow',
     caseStudy: '/projects/estateflow',
-    gradient: 'from-purple-500/20 to-pink-500/20',
     accentColor: 'var(--purple)',
   },
   {
@@ -54,10 +55,10 @@ const projects = [
       { value: '6', label: 'industry pre-built templates' },
       { value: '8s', label: 'avg AI response time' },
     ],
+    screenshot: '/screenshots/chatpilot-hero.png',
     demo: 'https://chatpilot-kappa.vercel.app',
     github: 'https://github.com/supergenrih-jpg/chatpilot',
     caseStudy: '/projects/chatpilot',
-    gradient: 'from-cyan-500/20 to-purple-500/20',
     accentColor: 'var(--cyan-light)',
   },
 ];
@@ -129,14 +130,29 @@ export default function Projects() {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15 }}
             >
-              <TiltCard className="glass-card overflow-hidden">
-                {/* Top gradient bar */}
-                <div
-                  className={`h-1 w-full bg-gradient-to-r ${project.gradient}`}
-                  style={{
-                    background: `linear-gradient(90deg, ${project.accentColor}, var(--purple))`,
-                  }}
-                />
+              <TiltCard className="glass-card overflow-hidden group">
+                {/* Screenshot */}
+                <div className="relative w-full overflow-hidden" style={{ height: '220px' }}>
+                  <Image
+                    src={project.screenshot}
+                    alt={`${project.title} interface`}
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 1280px) 100vw, 1280px"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: 'linear-gradient(to bottom, transparent 50%, rgba(10,10,15,0.85) 100%)',
+                      boxShadow: `inset 0 0 80px ${project.accentColor}18`,
+                    }}
+                  />
+                  {/* Accent glow border */}
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-px opacity-60"
+                    style={{ background: `linear-gradient(90deg, transparent, ${project.accentColor}, transparent)` }}
+                  />
+                </div>
 
                 <div className="p-8">
                   <div className="flex flex-col lg:flex-row lg:items-start gap-8">

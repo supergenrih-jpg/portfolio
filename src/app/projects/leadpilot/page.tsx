@@ -47,6 +47,12 @@ export default function LeadPilotPage() {
       demoUrl="https://leadpilot-genrih.vercel.app"
       githubUrl="https://github.com/supergenrih-jpg/leadpilot"
       accentColor="#06b6d4"
+      screenshots={[
+        '/screenshots/leadpilot-hero.png',
+        '/screenshots/leadpilot-1.png',
+        '/screenshots/leadpilot-2.png',
+        '/screenshots/leadpilot-3.png',
+      ]}
       metrics={[
         { value: '25', label: 'leads found in 4 seconds' },
         { value: '3', label: 'AI email variants per lead' },

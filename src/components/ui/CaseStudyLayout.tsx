@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import Navbar from '@/components/ui/Navbar';
@@ -24,6 +25,7 @@ interface CaseStudyLayoutProps {
   metrics: Metric[];
   lessons: { title: string; body: string }[];
   accentColor: string;
+  screenshots?: string[];
 }
 
 export default function CaseStudyLayout({
@@ -39,6 +41,7 @@ export default function CaseStudyLayout({
   metrics,
   lessons,
   accentColor,
+  screenshots,
 }: CaseStudyLayoutProps) {
   return (
     <>
@@ -140,6 +143,55 @@ export default function CaseStudyLayout({
             ))}
           </div>
         </section>
+
+        {/* Screenshots gallery */}
+        {screenshots && screenshots.length > 0 && (
+          <section className="py-12 px-6" style={{ backgroundColor: 'var(--bg-base)' }}>
+            <div className="max-w-5xl mx-auto space-y-4">
+              {/* Hero screenshot */}
+              <div
+                className="relative w-full rounded-2xl overflow-hidden"
+                style={{
+                  height: '420px',
+                  border: `1px solid ${accentColor}33`,
+                  boxShadow: `0 0 60px ${accentColor}18`,
+                }}
+              >
+                <Image
+                  src={screenshots[0]}
+                  alt={`${title} main screenshot`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 960px"
+                  priority
+                />
+              </div>
+              {/* Additional screenshots */}
+              {screenshots.length > 1 && (
+                <div className="grid grid-cols-3 gap-4">
+                  {screenshots.slice(1).map((src, i) => (
+                    <div
+                      key={i}
+                      className="relative rounded-xl overflow-hidden"
+                      style={{
+                        height: '180px',
+                        border: `1px solid ${accentColor}22`,
+                      }}
+                    >
+                      <Image
+                        src={src}
+                        alt={`${title} screenshot ${i + 2}`}
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 1024px) 33vw, 300px"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
 
         <div className="max-w-5xl mx-auto px-6 py-16 space-y-16">
           {/* Problem */}

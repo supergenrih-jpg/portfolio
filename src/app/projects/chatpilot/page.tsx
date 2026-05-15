@@ -48,6 +48,12 @@ export default function ChatPilotPage() {
       demoUrl="https://chatpilot-kappa.vercel.app"
       githubUrl="https://github.com/supergenrih-jpg/chatpilot"
       accentColor="#22d3ee"
+      screenshots={[
+        '/screenshots/chatpilot-hero.png',
+        '/screenshots/chatpilot-1.png',
+        '/screenshots/chatpilot-2.png',
+        '/screenshots/chatpilot-3.png',
+      ]}
       metrics={[
         { value: '4', label: 'channels in unified inbox' },
         { value: '6', label: 'industry pre-built templates' },
