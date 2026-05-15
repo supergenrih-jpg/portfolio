@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Mail, Calendar, Github, Send, CheckCircle2 } from 'lucide-react';
 import { z } from 'zod';
+import { Select } from '@/components/ui/Select';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -79,6 +80,13 @@ export default function Contact() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  const handleSelectChange = (name: keyof FormData) => (value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
@@ -220,30 +228,27 @@ export default function Contact() {
                 </div>
 
                 {/* Project type */}
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-                    Project type <span style={{ color: 'var(--cyan)' }}>*</span>
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    className={inputClass}
-                    style={{ ...inputStyle, cursor: 'pointer' }}
-                    aria-required="true"
-                  >
-                    <option value="">Select type...</option>
-                    <option value="AI Chatbot">AI Chatbot</option>
-                    <option value="Custom SaaS / MVP">Custom SaaS / MVP</option>
-                    <option value="CRM System">CRM System</option>
-                    <option value="Lead Generation Tool">Lead Generation Tool</option>
-                    <option value="API Integration">API Integration</option>
-                    <option value="Buy Existing Product (LeadPilot / EstateFlow / ChatPilot)">Buy Existing Product (LeadPilot / EstateFlow / ChatPilot)</option>
-                    <option value="Other">Other</option>
-                  </select>
-                  {errors.projectType && <p className="text-xs mt-1" style={{ color: '#f87171' }}>{errors.projectType}</p>}
-                </div>
+                <Select
+                  label="Project type"
+                  name="projectType"
+                  required
+                  value={formData.projectType}
+                  onChange={handleSelectChange('projectType')}
+                  placeholder="Select type..."
+                  error={errors.projectType}
+                  options={[
+                    { value: 'AI Chatbot', label: 'AI Chatbot' },
+                    { value: 'Custom SaaS / MVP', label: 'Custom SaaS / MVP' },
+                    { value: 'CRM System', label: 'CRM System' },
+                    { value: 'Lead Generation Tool', label: 'Lead Generation Tool' },
+                    { value: 'API Integration', label: 'API Integration' },
+                    {
+                      value: 'Buy Existing Product (LeadPilot / EstateFlow / ChatPilot)',
+                      label: 'Buy Existing Product (LeadPilot / EstateFlow / ChatPilot)',
+                    },
+                    { value: 'Other', label: 'Other' },
+                  ]}
+                />
 
                 {/* Budget (optional free text) */}
                 <div>
@@ -264,27 +269,21 @@ export default function Contact() {
                 </div>
 
                 {/* Timeline */}
-                <div>
-                  <label htmlFor="timeline" className="block text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
-                    Timeline <span style={{ color: 'var(--cyan)' }}>*</span>
-                  </label>
-                  <select
-                    id="timeline"
-                    name="timeline"
-                    value={formData.timeline}
-                    onChange={handleChange}
-                    className={inputClass}
-                    style={{ ...inputStyle, cursor: 'pointer' }}
-                    aria-required="true"
-                  >
-                    <option value="">Select timeline...</option>
-                    <option value="ASAP (within 1 week)">ASAP (within 1 week)</option>
-                    <option value="This month">This month</option>
-                    <option value="Next 1-3 months">Next 1–3 months</option>
-                    <option value="Just exploring">Just exploring</option>
-                  </select>
-                  {errors.timeline && <p className="text-xs mt-1" style={{ color: '#f87171' }}>{errors.timeline}</p>}
-                </div>
+                <Select
+                  label="Timeline"
+                  name="timeline"
+                  required
+                  value={formData.timeline}
+                  onChange={handleSelectChange('timeline')}
+                  placeholder="Select timeline..."
+                  error={errors.timeline}
+                  options={[
+                    { value: 'ASAP (within 1 week)', label: 'ASAP (within 1 week)' },
+                    { value: 'This month', label: 'This month' },
+                    { value: 'Next 1-3 months', label: 'Next 1–3 months' },
+                    { value: 'Just exploring', label: 'Just exploring' },
+                  ]}
+                />
 
                 {/* Message */}
                 <div>
