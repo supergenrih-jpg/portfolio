@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'AI Studio Developer | AI SaaS, Chatbots & Automation',
+  title: 'AI Automation for Business | Custom Chatbots & SaaS in 2–3 Weeks',
   description:
-    'Custom AI automation, chatbots, and micro-SaaS for businesses. From idea to production in 2–3 weeks. Next.js, OpenAI, Supabase expert.',
+    'Custom AI automation that grows your revenue 24/7. WhatsApp/Instagram chatbots, lead generation tools, and micro-SaaS. From idea to production in 2–3 weeks.',
   openGraph: {
-    title: 'AI Studio Developer',
+    title: 'AI Automation for Business — AI Studio Developer',
     description:
-      'I build AI-powered SaaS that converts. Custom automation, chatbots, and micro-SaaS in 2–3 weeks.',
+      'Custom AI automation that grows your revenue 24/7. WhatsApp/Instagram chatbots, lead generation tools, and micro-SaaS.',
     type: 'website',
   },
 };

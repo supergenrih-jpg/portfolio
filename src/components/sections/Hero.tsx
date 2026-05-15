@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import HeroBackground from '@/components/3d/HeroBackground';
 
-const heroWords = "I build AI-powered SaaS that converts.".split(' ');
-
 export default function Hero() {
   const scrollToProjects = () => {
     const el = document.getElementById('projects');
@@ -22,11 +20,9 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* CSS + Framer Motion background */}
       <HeroBackground />
 
-      {/* Content */}
-      <div className="relative text-center px-6 max-w-6xl mx-auto" style={{ zIndex: 10 }}>
+      <div className="relative text-center px-6 max-w-5xl mx-auto" style={{ zIndex: 10 }}>
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -37,34 +33,41 @@ export default function Hero() {
           Full-Stack Developer · AI Specialist · Available for Hire
         </motion.p>
 
-        {/* H1 with word reveal */}
+        {/* H1 */}
         <h1
-          className="font-bold leading-none mb-8"
+          className="font-bold mb-8"
           style={{
-            fontSize: 'clamp(3rem, 8vw, 9rem)',
+            fontSize: 'clamp(2.8rem, 7vw, 8rem)',
             letterSpacing: '-0.03em',
+            lineHeight: 1.1,
           }}
-          aria-label="I build AI-powered SaaS that converts."
+          aria-label="AI Automation for Business that Works 24/7"
         >
-          {heroWords.map((word, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.3 + i * 0.1,
-                ease: [0.25, 0.46, 0.45, 0.94],
-              }}
-              className={
-                word === 'AI-powered' || word === 'converts.'
-                  ? 'gradient-text inline-block mr-[0.25em]'
-                  : 'inline-block mr-[0.25em]'
-              }
-            >
-              {word}
-            </motion.span>
-          ))}
+          <motion.span
+            className="bg-clip-text text-transparent inline"
+            style={{ backgroundImage: 'linear-gradient(135deg, #22d3ee, #a855f7)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            AI Automation
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            {' '}for Business that Works{' '}
+          </motion.span>
+          <motion.span
+            className="bg-clip-text text-transparent inline"
+            style={{ backgroundImage: 'linear-gradient(135deg, #22d3ee, #a855f7)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            24/7
+          </motion.span>
         </h1>
 
         {/* Subtitle */}
@@ -75,8 +78,7 @@ export default function Hero() {
           className="text-lg md:text-xl max-w-2xl mx-auto mb-10"
           style={{ color: 'var(--text-secondary)' }}
         >
-          From idea to production in 2–3 weeks. Custom AI automation, chatbots,
-          and micro-SaaS for businesses ready to scale.
+          Chatbots, lead generation, and custom SaaS that grow your revenue while you sleep.
         </motion.p>
 
         {/* CTAs */}
@@ -87,7 +89,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
         >
           <button onClick={scrollToProjects} className="btn-primary">
-            View My Work
+            See My Work
           </button>
           <button onClick={scrollToContact} className="btn-secondary">
             Get in Touch
@@ -106,7 +108,7 @@ export default function Hero() {
             className="inline-block w-2 h-2 rounded-full mr-2 animate-pulse"
             style={{ backgroundColor: '#22c55e' }}
           />
-          Currently accepting 2 new clients
+          Open for 2 new projects this month
         </motion.p>
       </div>
 
