@@ -64,21 +64,31 @@ export default function About() {
       style={{ backgroundColor: 'var(--bg-elevated)' }}
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left: text */}
+        {/* Centered heading — matches all other sections */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="section-eyebrow">About Me</span>
+          <h2
+            className="font-bold"
+            style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.15 }}
+          >
+            I turn ideas into{' '}
+            <span className="gradient-text">shipped products.</span>
+          </h2>
+        </motion.div>
+
+        {/* 2-col: bio text left, stats right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          {/* Left: bio + languages */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.7, ease: 'easeOut' }}
           >
-            <span className="section-eyebrow">About Me</span>
-            <h2
-              className="font-bold mb-6"
-              style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.15 }}
-            >
-              I turn ideas into{' '}
-              <span className="gradient-text">shipped products.</span>
-            </h2>
             <div className="space-y-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               <p>
                 I&apos;m genrih — a full-stack developer with deep specialization in AI
@@ -124,7 +134,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right: stats */}
+          {/* Right: stat cards */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
