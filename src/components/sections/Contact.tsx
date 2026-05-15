@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Mail, Calendar, Github, Send, CheckCircle2 } from 'lucide-react';
 import { z } from 'zod';
@@ -57,6 +57,19 @@ export default function Contact() {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const raw = sessionStorage.getItem('contact-prefill');
+    if (!raw) return;
+    try {
+      const prefill = JSON.parse(raw) as Partial<FormData>;
+      setFormData((prev) => ({ ...prev, ...prefill }));
+    } catch {
+      // ignore malformed data
+    } finally {
+      sessionStorage.removeItem('contact-prefill');
+    }
+  }, []);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
@@ -226,6 +239,7 @@ export default function Contact() {
                     <option value="CRM System">CRM System</option>
                     <option value="Lead Generation Tool">Lead Generation Tool</option>
                     <option value="API Integration">API Integration</option>
+                    <option value="Buy Existing Product (LeadPilot / EstateFlow / ChatPilot)">Buy Existing Product (LeadPilot / EstateFlow / ChatPilot)</option>
                     <option value="Other">Other</option>
                   </select>
                   {errors.projectType && <p className="text-xs mt-1" style={{ color: '#f87171' }}>{errors.projectType}</p>}
