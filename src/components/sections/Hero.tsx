@@ -44,8 +44,7 @@ export default function Hero() {
           aria-label="AI Automation for Business that Works 24/7"
         >
           <motion.span
-            className="bg-clip-text text-transparent inline"
-            style={{ backgroundImage: 'linear-gradient(135deg, #22d3ee, #a855f7)' }}
+            className="gradient-text"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -60,8 +59,7 @@ export default function Hero() {
             {' '}for Business that Works{' '}
           </motion.span>
           <motion.span
-            className="bg-clip-text text-transparent inline"
-            style={{ backgroundImage: 'linear-gradient(135deg, #22d3ee, #a855f7)' }}
+            className="gradient-text"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
