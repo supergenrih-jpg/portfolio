@@ -6,7 +6,7 @@ const contactSchema = z.object({
   email: z.string().email(),
   company: z.string().optional(),
   projectType: z.string().min(1),
-  budget: z.string().min(1),
+  budget: z.string().optional(),
   timeline: z.string().min(1),
   message: z.string().min(10),
 });
@@ -24,14 +24,14 @@ export async function POST(req: NextRequest) {
 
       await resend.emails.send({
         from: 'Portfolio Contact <onboarding@resend.dev>',
-        to: 'super.genrih@ukr.net',
+        to: 'hello@aistudiodeveloper.com',
         subject: `New inquiry: ${data.projectType} from ${data.name}`,
         text: `
 Name: ${data.name}
 Email: ${data.email}
 Company: ${data.company || '—'}
 Project Type: ${data.projectType}
-Budget: ${data.budget}
+Budget: ${data.budget || '—'}
 Timeline: ${data.timeline}
 
 Message:

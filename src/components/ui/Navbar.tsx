@@ -49,7 +49,7 @@ export default function Navbar() {
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
           aria-label="Scroll to top"
         >
-          genrih
+          AI Studio Dev
         </button>
 
         {/* Desktop nav */}
@@ -70,15 +70,13 @@ export default function Navbar() {
               {link.label}
             </button>
           ))}
-          <a
-            href="https://www.upwork.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => scrollTo('#contact')}
             className="btn-primary text-sm"
             style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}
           >
-            Hire Me
-          </a>
+            Get in Touch
+          </button>
         </nav>
 
         {/* Mobile menu toggle */}
@@ -112,15 +110,13 @@ export default function Navbar() {
               {link.label}
             </button>
           ))}
-          <a
-            href="https://www.upwork.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => { scrollTo('#contact'); setMenuOpen(false); }}
             className="btn-primary text-sm text-center"
             style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}
           >
-            Hire Me
-          </a>
+            Get in Touch
+          </button>
         </motion.nav>
       )}
     </motion.header>

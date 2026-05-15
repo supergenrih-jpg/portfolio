@@ -2,7 +2,7 @@ import CaseStudyLayout from '@/components/ui/CaseStudyLayout';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'EstateFlow — Real Estate CRM | genrih',
+  title: 'EstateFlow — Real Estate CRM | AI Studio Developer',
   description:
     'Purpose-built CRM for real estate agents. Properties with photos and AI descriptions, drag-drop deal pipeline, showings calendar, buyer-property matching.',
 };

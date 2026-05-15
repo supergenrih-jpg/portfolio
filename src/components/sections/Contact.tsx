@@ -22,8 +22,8 @@ const contactMethods = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'super.genrih@ukr.net',
-    href: 'mailto:super.genrih@ukr.net',
+    value: 'hello@aistudiodeveloper.com',
+    href: 'mailto:hello@aistudiodeveloper.com',
     color: 'var(--cyan)',
   },
   {
@@ -36,7 +36,7 @@ const contactMethods = [
   {
     icon: Github,
     label: 'GitHub',
-    value: 'supergenrih-jpg',
+    value: 'View on GitHub',
     href: 'https://github.com/supergenrih-jpg',
     color: 'var(--text-secondary)',
   },
@@ -96,7 +96,7 @@ export default function Contact() {
       if (!res.ok) throw new Error('Failed to send');
       setIsSuccess(true);
     } catch {
-      setSubmitError('Something went wrong. Please try emailing me directly.');
+      setSubmitError('Something went wrong. Please email us at hello@aistudiodeveloper.com');
     } finally {
       setIsSubmitting(false);
     }

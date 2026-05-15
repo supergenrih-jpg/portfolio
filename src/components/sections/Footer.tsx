@@ -74,7 +74,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo / name */}
           <div>
-            <div className="font-bold text-lg gradient-text mb-1">genrih</div>
+            <div className="font-bold text-lg gradient-text mb-1">AI Studio Developer</div>
             <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
               Full-Stack Developer & AI Specialist
             </div>
@@ -122,7 +122,7 @@ export default function Footer() {
           className="mx-auto max-w-7xl mt-6 pt-6 border-t flex flex-col md:flex-row items-center justify-between gap-2 text-xs"
           style={{ borderColor: 'var(--border-glass)', color: 'var(--text-muted)' }}
         >
-          <span>© 2026 genrih · All rights reserved</span>
+          <span>© 2026 AI Studio Developer · All rights reserved</span>
           <span>Built with Next.js, Framer Motion, and ☕</span>
         </div>
       </motion.div>

@@ -2,7 +2,7 @@ import CaseStudyLayout from '@/components/ui/CaseStudyLayout';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ChatPilot — AI Multi-Channel Assistant | genrih',
+  title: 'ChatPilot — AI Multi-Channel Assistant | AI Studio Developer',
   description:
     'AI receptionist for small businesses. Connects WhatsApp, Instagram, Telegram, Messenger. Configurable for any industry in 15 minutes.',
 };

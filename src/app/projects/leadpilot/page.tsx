@@ -2,7 +2,7 @@ import CaseStudyLayout from '@/components/ui/CaseStudyLayout';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'LeadPilot — AI Lead Generator | genrih',
+  title: 'LeadPilot — AI Lead Generator | AI Studio Developer',
   description:
     'B2B prospect discovery + AI cold email writing. Connects Apollo.io, Google Maps, and OpenAI gpt-4o-mini to replace 3 separate tools with one workflow.',
 };

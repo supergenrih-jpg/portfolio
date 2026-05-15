@@ -91,12 +91,12 @@ export default function About() {
           >
             <div className="space-y-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               <p>
-                I&apos;m genrih — a full-stack developer with deep specialization in AI
-                integration and SaaS development. Over the past months I&apos;ve shipped 3
-                production-grade AI applications: a lead generation platform with OpenAI
-                integration, a real-estate CRM with AI listing generator, and a
-                multi-channel messaging assistant connecting WhatsApp, Instagram, and
-                Telegram.
+                I&apos;m an AI Studio Developer — a focused full-stack practice
+                specializing in AI integration and SaaS development. Over the past months
+                I&apos;ve shipped 3 production-grade AI applications: a lead generation
+                platform with OpenAI integration, a real-estate CRM with AI listing
+                generator, and a multi-channel messaging assistant connecting WhatsApp,
+                Instagram, and Telegram.
               </p>
               <p>
                 My focus is simple: deliver working software fast. While other developers
