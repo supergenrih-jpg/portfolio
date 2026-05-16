@@ -20,7 +20,7 @@ const projects = [
       { value: '94%', label: 'AI quality score' },
     ],
     screenshot: '/screenshots/leadpilot-hero.png',
-    demo: 'https://leadpilot-genrih.vercel.app',
+    demo: 'https://leadpilot.aistudio-saas.com',
     github: 'https://github.com/supergenrih-jpg/leadpilot',
     caseStudy: '/projects/leadpilot',
     accentColor: 'var(--cyan)',

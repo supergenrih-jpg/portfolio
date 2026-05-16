@@ -44,7 +44,7 @@ export default function LeadPilotPage() {
       eyebrow="AI Lead Generation Platform"
       title="LeadPilot"
       subtitle="AI-powered B2B prospect discovery and cold outreach automation"
-      demoUrl="https://leadpilot-genrih.vercel.app"
+      demoUrl="https://leadpilot.aistudio-saas.com"
       githubUrl="https://github.com/supergenrih-jpg/leadpilot"
       accentColor="#06b6d4"
       screenshots={[
