@@ -36,7 +36,7 @@ export default function EstateFlowPage() {
       eyebrow="Real Estate CRM"
       title="EstateFlow"
       subtitle="Purpose-built CRM for real estate agents with AI-powered listing generation"
-      demoUrl="https://estateflow-gamma.vercel.app"
+      demoUrl="https://estateflow.aistudio-saas.com"
       githubUrl="https://github.com/supergenrih-jpg/estateflow"
       accentColor="#a855f7"
       screenshots={[

@@ -45,7 +45,7 @@ export default function ChatPilotPage() {
       eyebrow="AI Multi-Channel Messaging Assistant"
       title="ChatPilot"
       subtitle="AI receptionist that handles WhatsApp, Instagram, Telegram, and Messenger simultaneously"
-      demoUrl="https://chatpilot-kappa.vercel.app"
+      demoUrl="https://chatpilot.aistudio-saas.com"
       githubUrl="https://github.com/supergenrih-jpg/chatpilot"
       accentColor="#22d3ee"
       screenshots={[
