@@ -1,53 +1,47 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
+import { NextResponse } from 'next/server';
 
-const contactSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  company: z.string().optional(),
-  projectType: z.string().min(1),
-  budget: z.string().optional(),
-  timeline: z.string().min(1),
-  message: z.string().min(10),
-});
+export async function POST(req: Request) {
+  const body = await req.json() as Record<string, unknown>;
 
-export async function POST(req: NextRequest) {
+  if (!process.env.WEB3FORMS_KEY) {
+    console.log('Contact form submission (no key set):', body);
+    return NextResponse.json({ success: true, dev: true });
+  }
+
   try {
-    const body = await req.json() as unknown;
-    const data = contactSchema.parse(body);
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        access_key: process.env.WEB3FORMS_KEY,
+        subject: `New inquiry from Portfolio: ${body.projectType || 'General'}`,
+        from_name: body.name || 'Portfolio Contact',
+        name: body.name,
+        email: body.email,
+        company: body.company,
+        project_type: body.projectType,
+        budget: body.budget,
+        timeline: body.timeline,
+        message: body.message,
+      }),
+    });
 
-    const apiKey = process.env.RESEND_API_KEY;
+    const result = await response.json() as { success: boolean; message?: string };
 
-    if (apiKey) {
-      const { Resend } = await import('resend');
-      const resend = new Resend(apiKey);
-
-      await resend.emails.send({
-        from: 'Portfolio Contact <onboarding@resend.dev>',
-        to: 'hello.aistudiodeveloper@gmail.com',
-        subject: `New inquiry: ${data.projectType} from ${data.name}`,
-        text: `
-Name: ${data.name}
-Email: ${data.email}
-Company: ${data.company || '—'}
-Project Type: ${data.projectType}
-Budget: ${data.budget || '—'}
-Timeline: ${data.timeline}
-
-Message:
-${data.message}
-        `.trim(),
-      });
+    if (result.success) {
+      return NextResponse.json({ success: true });
     } else {
-      console.log('Contact form submission (RESEND_API_KEY not set):', data);
+      console.error('Web3Forms error:', result);
+      return NextResponse.json(
+        { success: false, error: result.message || 'Failed to send' },
+        { status: 500 }
+      );
     }
-
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    if (err instanceof z.ZodError) {
-      return NextResponse.json({ error: 'Invalid form data' }, { status: 400 });
-    }
-    console.error('Contact API error:', err);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return NextResponse.json({ success: false, error: 'Network error' }, { status: 500 });
   }
 }
