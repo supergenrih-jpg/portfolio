@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Twitter, Send } from 'lucide-react';
 
 const quickLinks = [
   { label: 'About', href: '#about' },
@@ -15,6 +15,7 @@ const socials = [
   { icon: Github, href: 'https://github.com/supergenrih-jpg', label: 'GitHub' },
   { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
   { icon: Twitter, href: 'https://twitter.com', label: 'Twitter/X' },
+  { icon: Send, href: 'https://t.me/AiDeveloperStudio', label: 'Telegram' },
 ];
 
 const scrollTo = (id: string) => {

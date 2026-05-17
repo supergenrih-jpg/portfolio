@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Calendar, Github, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Send, CheckCircle2 } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
 import { z } from 'zod';
 import { Select } from '@/components/ui/Select';
 
@@ -23,23 +24,16 @@ const contactMethods = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'hello@aistudiodeveloper.com',
-    href: 'mailto:hello@aistudiodeveloper.com',
+    value: 'hello.aistudiodeveloper@gmail.com',
+    href: 'mailto:hello.aistudiodeveloper@gmail.com',
     color: 'var(--cyan)',
   },
   {
-    icon: Calendar,
-    label: 'Discovery Call',
-    value: 'Book 15-min call',
-    href: 'https://calendly.com',
+    icon: Send,
+    label: 'Telegram',
+    value: '@AiDeveloperStudio',
+    href: 'https://t.me/AiDeveloperStudio',
     color: 'var(--cyan-light)',
-  },
-  {
-    icon: Github,
-    label: 'GitHub',
-    value: 'View on GitHub',
-    href: 'https://github.com/supergenrih-jpg',
-    color: 'var(--text-secondary)',
   },
 ];
 
@@ -117,7 +111,7 @@ export default function Contact() {
       if (!res.ok) throw new Error('Failed to send');
       setIsSuccess(true);
     } catch {
-      setSubmitError('Something went wrong. Please email us at hello@aistudiodeveloper.com');
+      setSubmitError('Something went wrong. Please email us at hello.aistudiodeveloper@gmail.com');
     } finally {
       setIsSubmitting(false);
     }
@@ -321,16 +315,17 @@ export default function Contact() {
             )}
           </motion.div>
 
-          {/* Contact methods */}
+          {/* Contact methods + QR */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col justify-center gap-4"
           >
-            <p className="text-lg font-semibold mb-4" style={{ color: 'var(--text-secondary)' }}>
+            <p className="text-lg font-semibold mb-2" style={{ color: 'var(--text-secondary)' }}>
               Or reach out directly
             </p>
+
             {contactMethods.map((method, i) => {
               const Icon = method.icon;
               return (
@@ -366,8 +361,34 @@ export default function Contact() {
               );
             })}
 
+            {/* QR code */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.4, delay: 0.62 }}
+              className="glass-card p-5 flex flex-col items-center gap-3"
+              style={{ borderColor: 'rgba(6,182,212,0.2)' }}
+            >
+              <div
+                className="rounded-xl overflow-hidden p-3"
+                style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+              >
+                <QRCodeSVG
+                  value="https://t.me/AiDeveloperStudio"
+                  size={160}
+                  bgColor="transparent"
+                  fgColor="#e2e8f0"
+                  level="H"
+                  marginSize={1}
+                />
+              </div>
+              <p className="text-xs text-center" style={{ color: 'var(--text-muted)' }}>
+                Scan with phone camera to message me on Telegram
+              </p>
+            </motion.div>
+
             <div
-              className="glass-card p-5 mt-4"
+              className="glass-card p-5"
               style={{ borderColor: 'rgba(6,182,212,0.2)' }}
             >
               <div className="flex items-center gap-2 mb-2">

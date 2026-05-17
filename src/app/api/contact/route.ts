@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
 
       await resend.emails.send({
         from: 'Portfolio Contact <onboarding@resend.dev>',
-        to: 'hello@aistudiodeveloper.com',
+        to: 'hello.aistudiodeveloper@gmail.com',
         subject: `New inquiry: ${data.projectType} from ${data.name}`,
         text: `
 Name: ${data.name}
